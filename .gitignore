@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Zip distributions
+*.zip
+
+# Local state
+*.log
