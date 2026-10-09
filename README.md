@@ -98,9 +98,26 @@ The software provides dedicated control and data-logging tabs for core electrica
 
 ---
 
-## Lab Deployment Notice
+## Run from source
 
-The full Python source code and laboratory-specific calibration profiles are maintained directly in the research group laboratory environment at the University of Arkansas. The pre-compiled executable bundle provided in this repository allows collaborators and laboratory users to deploy and run the suite across Windows-based instrument stations.
+Python 3.11+ with Tkinter (included in the standard Windows installer). Hardware I/O also needs an IVI/VISA driver such as NI-VISA, Keysight VISA, or R&S VISA. Without that driver the interface still opens and the affected instrument tabs stay disabled.
+
+```bash
+pip install pyvisa
+python instrument_suite_fast.py
+```
+
+`requirements.txt` lists the broader lab stack (`pyvisa`, `pymeasure`, `matplotlib`). This Fast Edition imports only `pyvisa` at runtime.
+
+Build the same one-folder Windows bundle shipped in Releases:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build_exe.ps1 -Target fast
+```
+
+That writes `dist\InstrumentSuiteFast\InstrumentSuiteFast.exe`. Ship the whole `InstrumentSuiteFast` folder (the executable and `_internal` together). `build_exe.ps1` can also build other lab apps when their specs are present; this repository contains the Fast Edition target.
+
+Operation of the tabs, intervals, and view controls is in [USER_GUIDE_FAST.md](USER_GUIDE_FAST.md).
 
 ---
 

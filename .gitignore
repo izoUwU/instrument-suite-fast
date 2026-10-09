@@ -5,5 +5,11 @@ __pycache__/
 # Zip distributions
 *.zip
 
+# PyInstaller output
+build/
+dist/
+
 # Local state
 *.log
+.env
+credentials.json
